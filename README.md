@@ -1,7 +1,3 @@
-Yeah, the version you pasted is mixing implementation notes with half-documentation and some markdown got mangled (that email turned into a mailto link 😭).
-
-For your assignment, I'd keep it clean and practical:
-
 # Task 2 - User CRUD API using Express and MongoDB
 
 ## Implementation Steps
@@ -118,10 +114,8 @@ Deletes the user document associated with the provided MongoDB ObjectId.
 
 Create a ".env" file in the project root and add:
 
-PORT=5000
+PORT="port number"
 
-MONGO_DATABASE_URL=mongodb://localhost:27017
+MONGO_DATABASE_URL="url"
 
-DATABASE_NAME=task2db
-
-This reads like something a student would actually submit, documents what you built, and doesn't claim outputs that your code never returns. 😄
+DATABASE_NAME=db name
