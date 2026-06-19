@@ -1,117 +1,258 @@
-# Task 2 - CRUD Operations using Express and MongoDB
+# CRUD Full Stack Application
 
-## Implementation Steps
+A full-stack CRUD application built using React, Node.js, Express.js, and MongoDB.
 
-1. Inititalize the application using "npm init -y".
-2. Install Express using "npm i express".
-3. Install MongoDB driver using "npm i mongodb".
-4. Install dotenv using "npm i dotenv".
-5. Create the basic project folder structure.
-6. Create a ".env" file to store environment variables.
-7. Configure MongoDB connection in "src/config/db.js".
-8. Establish database connection using MongoClient and async/await.
-9. Create a reusable database utility using the "getDB()" function.
-10. Create "user.model.js" for User database operations.
-11. Implement Create User functionality using "insertOne()".
-12. Implement Fetch All Users functionality using "find().toArray()".
-13. Implement Fetch User By Id functionality using "findOne()".
-14. Implement Update User functionality using "updateOne()".
-15. Implement Delete User functionality using "deleteOne()".
-16. Create "user.service.js" to handle User business logic.
-17. Create "user.handler.js" to handle User requests and responses.
-18. Create "user.routes.js" to define User API endpoints.
-19. Create "product.model.js" for Product database operations.
-20. Implement Create Product functionality using "insertOne()".
-21. Implement Fetch All Products functionality using "find().toArray()".
-22. Implement Fetch Product By Id functionality using "findOne()".
-23. Implement Update Product functionality using "updateOne()".
-24. Implement Delete Product functionality using "deleteOne()".
-25. Create "product.service.js" to handle Product business logic.
-26. Create "product.handler.js" to handle Product requests and responses.
-27. Create "product.routes.js" to define Product API endpoints.
-28. Create "app.js" to configure middleware and register routes.
-29. Create "server.js" to establish database connection and start the application.
-30. Test User CRUD APIs using Postman.
-31. Test Product CRUD APIs using Postman.
-32. Verify data persistence using MongoDB.
-33. Successfully implement and test CRUD operations for both Users and Products collections.
+## Project Overview
 
-## Collections
+This project implements complete CRUD (Create, Read, Update, Delete) operations for three entities:
 
-### Users Collection
+* Users
+* Products
+* Orders
 
-Sample Document:
+The application follows a layered backend architecture and uses MongoDB as the database.
 
-{
-"name": "Aarav Sharma",
-"email": "[aarav.sharma@gmail.com](mailto:aarav.sharma@gmail.com)",
-"age": 24
-}
+---
 
-### Products Collection
+## Tech Stack
 
-Sample Document:
+### Frontend
 
-{
-"productName": "iPhone 15",
-"brand": "Apple",
-"category": "Mobile",
-"mrp": 79999,
-"sellingPrice": 74999,
-"stock": 25
-}
+* React
+* Vite
+* Axios
+* CSS
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB Driver
+* dotenv
+* CORS
+
+### Database
+
+* MongoDB
+
+---
+
+## Project Structure
+
+```text
+Task2
+│
+├── backend
+│   ├── src
+│   │   ├── config
+│   │   ├── handlers
+│   │   ├── models
+│   │   ├── router
+│   │   └── services
+│   │
+│   ├── server.js
+│   └── package.json
+│
+└── frontend
+    ├── src
+    ├── public
+    └── package.json
+```
+
+---
+
+## Backend Architecture
+
+The backend follows a layered architecture:
+
+```text
+Router
+   ↓
+Handler
+   ↓
+Service
+   ↓
+Model
+   ↓
+MongoDB
+```
+
+---
 
 ## Environment Variables
 
-PORT="port number"
+Create a `.env` file inside the backend folder.
 
-MONGO_DATABASE_URL="url"
+```env
+PORT=5000
 
-DATABASE_NAME="database name"
+MONGO_DATABASE_URL=mongodb://localhost:27017
+
+DATABASE_NAME=task2db
+```
+
+---
+
+## Collections
+
+### Users
+
+```json
+{
+  "name": "John Doe",
+  "email": "john@gmail.com",
+  "phone": "9876543210",
+  "address": "Hyderabad"
+}
+```
+
+### Products
+
+```json
+{
+  "name": "iPhone 17",
+  "description": "Apple Smartphone",
+  "price": 177000,
+  "quantity": 25,
+  "category": "Smart Phones"
+}
+```
+
+### Orders
+
+```json
+{
+  "userId": "USER_ID",
+  "products": [
+    {
+      "productId": "PRODUCT_ID",
+      "quantity": 1,
+      "price": 177000
+    }
+  ],
+  "totalAmount": 177000,
+  "status": "pending"
+}
+```
+
+---
 
 ## API Endpoints
 
 ### Users
 
-POST /users
+| Method | Endpoint   |
+| ------ | ---------- |
+| POST   | /users     |
+| GET    | /users     |
+| GET    | /users/:id |
+| PUT    | /users/:id |
+| DELETE | /users/:id |
 
-GET /users
-
-GET /users/:id
-
-PUT /users/:id
-
-DELETE /users/:id
+---
 
 ### Products
 
-POST /products
+| Method | Endpoint      |
+| ------ | ------------- |
+| POST   | /products     |
+| GET    | /products     |
+| GET    | /products/:id |
+| PUT    | /products/:id |
+| DELETE | /products/:id |
 
-GET /products
+---
 
-GET /products/:id
+### Orders
 
-PUT /products/:id
+| Method | Endpoint    |
+| ------ | ----------- |
+| POST   | /orders     |
+| GET    | /orders     |
+| GET    | /orders/:id |
+| PUT    | /orders/:id |
+| DELETE | /orders/:id |
 
-DELETE /products/:id
+---
 
+## Features
 
-# React + Vite
+### Users
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* Create User
+* View All Users
+* Update User
+* Delete User
 
-Currently, two official plugins are available:
+### Products
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Create Product
+* View All Products
+* Update Product
+* Delete Product
 
-## React Compiler
+### Orders
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Create Order
+* View All Orders
+* Update Order Status
+* Delete Order
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# crud-full-stack
+## Frontend Features
 
+* Home Page
+* Users Management Page
+* Products Management Page
+* Orders Management Page
+* Responsive Card-Based UI
+* Axios Integration with Backend APIs
+
+---
+
+## Running the Project
+
+### Backend
+
+```bash
+cd backend
+
+npm install
+
+node server.js
+```
+
+Backend runs on:
+
+```text
+http://localhost:5000
+```
+
+---
+
+### Frontend
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+Frontend runs on:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Author
+
+Shriya Rao Balivada
+
+B.Tech Computer Science and Engineering
+
+SRM University AP
