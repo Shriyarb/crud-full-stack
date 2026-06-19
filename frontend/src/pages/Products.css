@@ -1,0 +1,104 @@
+.products-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.products-page h1,
+.products-page h2 {
+    text-align: center;
+}
+
+.product-form {
+    background: #1a1f2e;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 450px;
+    margin: 30px auto;
+}
+
+.product-form input {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+}
+
+.product-form button {
+    background: royalblue;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #1a1f2e;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.product-card h3 {
+    text-align: center;
+    color: #4f8cff;
+    margin-bottom: 15px;
+}
+
+.product-card p {
+    margin: 10px 0;
+}
+
+.product-card input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.edit-btn,
+.save-btn {
+    flex: 1;
+    background: royalblue;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    flex: 1;
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    flex: 1;
+    background: gray;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
